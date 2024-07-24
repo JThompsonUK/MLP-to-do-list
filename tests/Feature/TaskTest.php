@@ -83,6 +83,6 @@ class TaskTest extends TestCase
         $response->assertRedirect(route('tasks.index'));
         $response->assertSessionHas('success', 'Task deleted successfully.');
 
-        $this->assertDatabaseMissing('tasks', ['id' => $task->id]);
+        $this->assertDatabaseMissing('tasks', ['id' => $this->newTask->id]);
     }
 }

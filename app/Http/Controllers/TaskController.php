@@ -54,7 +54,7 @@ class TaskController extends Controller
     /**
      * Mark the specified task as completed.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return RedirectResponse
      */
     public function tick(Task $task)
@@ -66,7 +66,7 @@ class TaskController extends Controller
     /**
      * Mark the specified task as not completed.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return RedirectResponse
      */
     public function untick(Task $task)
@@ -78,7 +78,7 @@ class TaskController extends Controller
     /**
      * Delete the specified task.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return RedirectResponse
      */
     public function delete(Task $task)
