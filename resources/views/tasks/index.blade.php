@@ -30,12 +30,12 @@
                                 <th scope="col">Task</th>
                                 <th scope="col"></th>
                             </tr>
-                        </thead>>
+                        </thead>
                         <tbody>
 
-                            @foreach ($tasks as $task)
+                            @foreach ($tasks as $index => $task)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{{ $index + 1 }}</th>
 
                                     <td>
                                         <span class="{{ $task->completed ? 'completed-task' : '' }}">
@@ -46,7 +46,7 @@
                                     <td>
                                         @if (!$task->completed)
                                             <div>
-                                                <a href="{{ route('tasks.complete', $task->id) }}" class="btn btn-success">
+                                                <a href="{{ route('tasks.tick', $task->id) }}" class="btn btn-success">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                                                         <path

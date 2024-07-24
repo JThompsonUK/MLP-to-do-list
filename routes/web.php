@@ -18,7 +18,7 @@ Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
 
 Route::post('/tasks/store', [TaskController::class, 'store'])->name('tasks.store');
 
-Route::get('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
+Route::get('/tasks/{task}/tick', [TaskController::class, 'tick'])->name('tasks.tick');
 
 Route::get('/tasks/{task}/untick', [TaskController::class, 'untick'])->name('tasks.untick');
 

@@ -14,7 +14,7 @@ class TaskService implements TaskInterface
      * @param string $name
      * @return Task
      */
-    public function addTask(string $name): Task
+    public function create(string $name): Task
     {
         return Task::create(['name' => $name]);
     }
@@ -22,51 +22,33 @@ class TaskService implements TaskInterface
     /**
      * Remove a task.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return bool
      */
-    public function removeTask(int $taskId): bool
+    public function delete(Task $task): bool
     {
-        $task = Task::find($taskId);
-        if ($task) {
-            $task->delete();
-            return true;
-        }
-
-        return false;
+        return $task->delete();
     }
 
     /**
      * Mark a task as completed.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return bool
      */
-    public function tickTask(int $taskId): bool
+    public function tick(Task $task): bool
     {
-        $task = Task::find($taskId);
-        if ($task) {
-            $task->update(['completed' => Carbon::now()]);
-            return true;
-        }
-
-        return false;
+        return $task->update(['completed' => now()]);
     }
 
     /**
      * Mark a task as not completed.
      *
-     * @param int $taskId
+     * @param Task $task
      * @return bool
      */
-    public function untickTask(int $taskId): bool
+    public function untick(Task $task): bool
     {
-        $task = Task::find($taskId);
-        if ($task) {
-            $task->update(['completed' => null]);
-            return true;
-        }
-
-        return false;
+        return $task->update(['completed' => null]);
     }
 }

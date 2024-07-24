@@ -6,8 +6,35 @@ use App\Models\Task;
 
 interface TaskInterface
 {
-    public function addTask(string $name): Task;
-    public function removeTask(int $taskId): bool;
-    public function tickTask(int $taskId): bool;
-    public function untickTask(int $taskId): bool;
+    /**
+     * Add a new task.
+     *
+     * @param string $name
+     * @return Task
+     */
+    public function create(string $name): Task;
+
+    /**
+     * Remove the specified task.
+     *
+     * @param Task $task
+     * @return bool
+     */
+    public function delete(Task $task): bool;
+
+    /**
+     * Mark the specified task as completed.
+     *
+     * @param Task $task
+     * @return bool
+     */
+    public function tick(Task $task): bool;
+
+    /**
+     * Mark the specified task as not completed.
+     *
+     * @param Task $task
+     * @return bool
+     */
+    public function untick(Task $task): bool;
 }

@@ -40,14 +40,14 @@ class TaskController extends Controller
     }
 
     /**
-     * Store a newly created task.
+     * Store a new task.
      *
      * @param Request $request
      * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        $this->taskService->addTask($request->name);
+        $this->taskService->create($request->name);
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
     }
 
@@ -57,9 +57,9 @@ class TaskController extends Controller
      * @param int $taskId
      * @return RedirectResponse
      */
-    public function complete($taskId)
+    public function tick(Task $task)
     {
-        $this->taskService->tickTask($taskId);
+        $this->taskService->tick($task);
         return redirect()->route('tasks.index')->with('success', 'Task marked as completed.');
     }
 
@@ -69,9 +69,9 @@ class TaskController extends Controller
      * @param int $taskId
      * @return RedirectResponse
      */
-    public function untick($taskId)
+    public function untick(Task $task)
     {
-        $this->taskService->untickTask($taskId);
+        $this->taskService->untick($task);
         return redirect()->route('tasks.index')->with('success', 'Task marked as not completed.');
     }
 
@@ -81,9 +81,9 @@ class TaskController extends Controller
      * @param int $taskId
      * @return RedirectResponse
      */
-    public function delete($taskId)
+    public function delete(Task $task)
     {
-        $this->taskService->removeTask($taskId);
+        $this->taskService->delete($task);
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
     }
 }
