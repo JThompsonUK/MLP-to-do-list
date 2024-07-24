@@ -15,3 +15,9 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', [TaskController::class, 'index'])->name('index');
+
+Route::get('/tasks/store', [TaskController::class, 'create'])->name('tasks.store');
+
+Route::get('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
+
+Route::get('/tasks/{task}/delete', [TaskController::class, 'delete'])->name('tasks.delete');
