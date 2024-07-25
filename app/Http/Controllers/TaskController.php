@@ -54,6 +54,7 @@ class TaskController extends Controller
 
     /**
      * Mark the specified task as completed.
+     * Consider using a toggle instead of having two methods for tick and untick
      *
      * @param Task $task
      * @return RedirectResponse

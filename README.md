@@ -2,6 +2,8 @@
 
 A simple app where you can add, delete, mark a task as complete/incomplete. The app runs in docker for easy development and consistency.
 
+![alt text](image.png)
+
 ## Installation
 
 Create new .env file copying details in .env.example
@@ -66,3 +68,4 @@ docker-compose exec app php artisan test
 -   Vue.js / React.js for the front-end to leverage component-based, reactive design capabilities. Potentially also implement Inertia.js for seamless integration.
 -   Toggle tick instead of having two methods for tick and untick
 -   Import svgs instead of embedding within blade file
+-   Option to view deleted tasks
