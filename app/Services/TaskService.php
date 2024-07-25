@@ -38,7 +38,7 @@ class TaskService implements TaskInterface
      */
     public function tick(Task $task): bool
     {
-        return $task->update(['completed' => now()]);
+        return $task->update(['completed' => Carbon::now()]);
     }
 
     /**
