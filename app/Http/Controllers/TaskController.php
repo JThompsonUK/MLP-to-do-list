@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Interfaces\TaskInterface;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class TaskController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         $this->taskService->create($request->name);
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');

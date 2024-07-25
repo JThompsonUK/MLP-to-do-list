@@ -1,0 +1,26 @@
+body {
+    background: #F1F1F1;
+}
+
+.completed-task {
+    text-decoration: line-through;
+}
+
+.task-table {
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    padding: 20px;
+    background: white;
+}
+
+.task-table th, tr, td {
+    font-weight: normal;
+}
+
+table tbody tr:last-child {
+    border: white;
+}
+
+table thead tr {
+    border-bottom: 2px solid #E0E0E0;
+}

@@ -15,8 +15,6 @@ class TaskFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence,
-            'completed' => $this->faker->boolean ? Carbon::now()->subDays(rand(0, 365)) : null,
-            'deleted_at' => $this->faker->boolean ? Carbon::now() : null,
         ];
     }
 }

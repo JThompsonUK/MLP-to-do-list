@@ -41,7 +41,7 @@ class TaskTest extends TestCase
      */
     public function it_marks_task_as_completed_when_ticked()
     {
-        $response = $this->get(route('tasks.tick', $this->newTask->id));
+        $response = $this->patch(route('tasks.tick', $this->newTask->id));
 
         $response->assertRedirect(route('tasks.index'));
         $response->assertSessionHas('success', 'Task marked as completed.');
@@ -59,7 +59,7 @@ class TaskTest extends TestCase
      */
     public function it_marks_task_as_not_completed_when_unticked()
     {
-        $response = $this->get(route('tasks.untick', $this->newTask->id));
+        $response = $this->patch(route('tasks.untick', $this->newTask->id));
 
         $response->assertRedirect(route('tasks.index'));
         $response->assertSessionHas('success', 'Task marked as not completed.');
@@ -75,14 +75,13 @@ class TaskTest extends TestCase
      *
      * @test
      */
-    public function it_can_delete_a_task()
+    public function it_can_soft_delete_a_task()
     {
-
-        $response = $this->delete("/tasks/{$this->newTask->id}/delete");
+        $response = $this->delete(route('tasks.delete', $this->newTask->id));
 
         $response->assertRedirect(route('tasks.index'));
         $response->assertSessionHas('success', 'Task deleted successfully.');
 
-        $this->assertDatabaseMissing('tasks', ['id' => $this->newTask->id]);
+        $this->assertSoftDeleted('tasks', ['id' => $this->newTask->id]);
     }
 }

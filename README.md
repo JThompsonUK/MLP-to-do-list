@@ -1,8 +1,6 @@
 ## MLP To-DO - Instructions
 
-A simple app where you can add, delete and mark a task as complete. The app runs in docker for easy development and consistent .
-
-Completed is a dateTime field which allows to check if and when the task was completed
+A simple app where you can add, delete, mark a task as complete/incomplete. The app runs in docker for easy development and consistency.
 
 ## Installation
 
@@ -38,6 +36,18 @@ Seed the database with some test data
 docker-compose exec app php artisan db:seed
 ```
 
+Install node packages
+
+```bash
+npm install
+```
+
+Run Vite dev server
+
+```bash
+npm run dev
+```
+
 View the app
 
 ```bash
@@ -50,24 +60,9 @@ http://localhost:8000/
 docker-compose exec app php artisan test
 ```
 
-update bootstrap / front end library / SCSS
+## Future considerations
 
-You must demonstrate the following abilities/skills: make models, controllers, migrations, HTML, CSS, blade, Git commits, blade templates, etc.
-
-**1. Fork this repo**
-
-**2. Build front-end**
-
-Layout must be as follows:
-
-![Alt text](assets/site-layout.png?raw=true "Title")
-Please note that the above image and logo are in the 'assets' folder.
-
-**3. Build To-Do list functionality**
-
-     A user should be able to
-     * Create a task.
-     * Delete a task.
-     * Mark a task as completed.
-
-**Good Luck !!! Once done, please send us the link of your repo.**
+-   Tailwind / SCSS / Responsive design
+-   Vue.js / React.js for the front-end to leverage component-based, reactive design capabilities. Potentially also implement Inertia.js for seamless integration.
+-   Toggle tick instead of having two methods for tick and untick
+-   Import svgs instead of embedding within blade file
